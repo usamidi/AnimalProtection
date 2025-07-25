@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Three.js - Load .GLTF</title>
+    <link rel="stylesheet" href="../css/text.css">
+    <style>
+    html, body {
+        margin: 0;
+        height: 100%;
+        width: 100%;
+    }
+    .container {
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+      background: url("../img/ocean.jpg") center/cover no-repeat;
+      position: relative;
+    }
+
+    .container::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.7); /* 深色蒙版，可调 */
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .left, .right {
+      position: relative;
+      z-index: 2;
+    }
+
+    .left {
+      width: 33.33vw;
+      height: 100vh;
+    }
+
+    .right {
+      width: 66.67vw;
+      height: 100vh;
+      overflow: auto;
+      padding: 32px;
+      box-sizing: border-box;
+    }
+    #c {
+        width: 100%;
+        height: 100%;
+        display: block;
+        background: transparent;
+    }
+    .ocean-btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #00bfff 0%, #0077be 100%);
+      color: #fff;
+      font-size: 1.2em;
+      font-weight: bold;
+      padding: 0.7em 2em;
+      border-radius: 30px;
+      margin: 2em 0;
+      text-decoration: none;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+      transition: background 0.2s;
+    }
+    .ocean-btn:hover {
+      background: linear-gradient(90deg, #0077be 0%, #00bfff 100%);
+    }
+    .right-content {
+      background: rgba(0,0,0,0.35); /* 或 rgba(255,255,255,0.12) */
+      border-radius: 18px;
+      padding: 32px 36px;
+      margin: 0 auto;
+      max-width: 950px; /* 或 80% */
+      box-shadow: 0 4px 32px rgba(0,0,0,0.12);
+      backdrop-filter: blur(2px); /* 现代浏览器支持磨砂效果 */
+    }
+    .section-title {
+      color: #fff;
+      font-size: 1.5em;
+      margin-top: 2em;
+      margin-bottom: 0.5em;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      border-left: 4px solid #00bfff;
+      padding-left: 0.5em;
+    }
+    .illustration {
+      width: 100%;
+      max-width: 400px;
+      display: block;
+      margin: 2em auto;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    }
+    .ocean-list {
+      color: #fff;
+      font-size: 1.2em;
+      margin: 1.5em 0;
+      padding-left: 1.5em;
+      list-style: disc;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">
+        <canvas id="c"></canvas>
+      </div>
+      <div class="right">
+        <div class="right-content">
+          <h1 class="ocean-text">海洋动物 - 鲸鱼</h1>
+          <p class="paragraph">海豚总是用它们顽皮又带点滑稽的动作让我们感到高兴，用它们友善的脸孔令我们感到温暖。它们是需要呼吸空气的温血海洋哺乳动物，也会哺育自己的子女。它们利用回声定位来“看”世界 —— 通过诠释从水中物体反射的声波，它们可以在水下导航并识别附近物体的形状、大小和位置。全球现存的海豚有40种，大部分都因为人类活动而数量正在下降，我们熟悉的中华白海豚（Sousa Chinensis）就是其中之一。</p>
+          <h2 class="section-title">中华白海豚现状</h2>
+          <img src="../img/dophin1.jpg" alt="海豚" class="illustration">
+          <p class="paragraph">栖息在包括香港在内珠江口一带的中华白海豚数量据估计仅余约<strong>2000</strong>头。过去几年，出现在香港水域的年幼海豚数量更出现令人担忧的下降。如果这种趋势持续，它们或许会面临局部灭绝的风险。</p>
+          <h2 class="section-title">海豚所面临的威胁</h2>
+          <ul class="ocean-list">
+            <li class="paragraph" style="font-size: 1.2em;">误捕：每年有超过30万头鲸鱼、海豚和鼠海豚因被渔网缠住而无辜丧命。</li>
+            <li class="paragraph" style="font-size: 1.2em;">船舶撞击及水下噪音：船舶撞击和噪音是导致海豚死亡和生存威胁的重要原因。</li>
+            <li class="paragraph" style="font-size: 1.2em;">栖息地被破坏：填海造地、挖泥、采砂和海岸建设等活动污染了海豚的栖息地。</li>
+            <li class="paragraph" style="font-size: 1.2em;">污染：海洋生物经常将塑料误认为食物，全球每年约有10万只海洋哺乳动物因塑料污染而死亡。</li>
+          </ul>
+          <p class="paragraph">我们需要您的帮助以守护海豚！</p>
+          <a href="#" class="ocean-btn">立即成为海豚守护者</a>
+          <h2 class="section-title">为何海豚如此重要</h2>
+          <p class="paragraph">海豚处于食物链的顶端，对维持海洋生态的整体平衡有重要作用。它们是海洋健康的指标，它们的状况可以直接反映海洋是否有污染物或鱼群有否减少。它们也很受游客欢迎，可以通过生态旅游帮助促进经济发展。</p>
+          <p class="paragraph">通过保护海豚，我们实际上是在守护整个海洋生态 —— 这对无数野生动物以及数以亿计依赖海洋生存的人都会带来好处。</p>
+        </div>
+      </div>
+    </div>
+  </body>
+<script type="importmap">
+{
+  "imports": {
+    "three": "../../build/three.module.js",
+    "three/addons/": "../../example/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+function main() {
+
+	const canvas = document.querySelector( '#c' );
+	const renderer = new THREE.WebGLRenderer( { antialias: true, canvas, alpha: true } );
+
+	const fov = 45;
+	const aspect = 2; // the canvas default
+	const near = 0.1;
+	const far = 100;
+	const camera = new THREE.PerspectiveCamera( fov, aspect, near, far );
+	camera.position.set( 0, 10, 50 );
+
+	const controls = new OrbitControls( camera, canvas );
+	controls.target.set( 0, 5, 0 );
+	controls.update();
+
+	const scene = new THREE.Scene();
+	scene.background = null;
+
+
+	{
+
+		const skyColor = 0xB1E1FF; // light blue
+		const groundColor = 0xB97A20; // brownish orange
+		const intensity = 2;
+		const light = new THREE.HemisphereLight( skyColor, groundColor, intensity );
+		scene.add( light );
+
+	}
+
+	{
+
+		const color = 0xFFFFFF;
+		const intensity = 2.5;
+		const light = new THREE.DirectionalLight( color, intensity );
+		light.position.set( 5, 10, 2 );
+		scene.add( light );
+		scene.add( light.target );
+
+	}
+
+	function frameArea( sizeToFitOnScreen, boxSize, boxCenter, camera ) {
+
+		const halfSizeToFitOnScreen = sizeToFitOnScreen * 0.5;
+		const halfFovY = THREE.MathUtils.degToRad( camera.fov * .5 );
+		const distance = halfSizeToFitOnScreen / Math.tan( halfFovY );
+		// compute a unit vector that points in the direction the camera is now
+		// in the xz plane from the center of the box
+		const direction = ( new THREE.Vector3() )
+			.subVectors( camera.position, boxCenter )
+			.multiply( new THREE.Vector3( 1, 0, 1 ) )
+			.normalize();
+
+		// move the camera to a position distance units way from the center
+		// in whatever direction the camera was from the center already
+		camera.position.copy( direction.multiplyScalar( 1.5*distance ).add( boxCenter ) );
+
+		// pick some near and far values for the frustum that
+		// will contain the box.
+		camera.near = boxSize / 100;
+		camera.far = boxSize * 100;
+
+		camera.updateProjectionMatrix();
+
+		// point the camera to look at the center of the box
+		camera.lookAt( boxCenter.x, boxCenter.y, boxCenter.z );
+
+	}
+
+	{
+
+		const gltfLoader = new GLTFLoader();
+		gltfLoader.load( '../model/whale.gltf', ( gltf ) => {
+
+			const root = gltf.scene;
+			scene.add( root );
+
+			// compute the box that contains all the stuff
+			// from root and below
+			const box = new THREE.Box3().setFromObject( root );
+
+			const boxSize = box.getSize( new THREE.Vector3() ).length();
+			const boxCenter = box.getCenter( new THREE.Vector3() );
+
+			// set the camera to frame the box
+			frameArea( boxSize * 0.5, boxSize, boxCenter, camera );
+
+			// update the Trackball controls to handle the new size
+			controls.maxDistance = boxSize * 10;
+			controls.target.copy( boxCenter );
+			controls.update();
+
+		} );
+
+	}
+
+	function resizeRendererToDisplaySize( renderer ) {
+
+		const canvas = renderer.domElement;
+		const width = canvas.clientWidth;
+		const height = canvas.clientHeight;
+		const needResize = canvas.width !== width || canvas.height !== height;
+		if ( needResize ) {
+
+			renderer.setSize( width, height, false );
+
+		}
+
+		return needResize;
+
+	}
+
+	function render() {
+
+		if ( resizeRendererToDisplaySize( renderer ) ) {
+
+			const canvas = renderer.domElement;
+			camera.aspect = canvas.clientWidth / canvas.clientHeight;
+			camera.updateProjectionMatrix();
+
+		}
+
+		renderer.render( scene, camera );
+
+		requestAnimationFrame( render );
+
+	}
+
+	requestAnimationFrame( render );
+
+}
+
+main();
+</script>
+</html>

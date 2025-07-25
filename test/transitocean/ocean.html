@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>海洋过渡动画</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow-x: hidden;
+      background: #87ceeb; /* 天空蓝 */
+    }
+    body {
+      min-height: 400vh; /* 允许滚动 */
+    }
+    #ocean-svg {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: 1;
+      pointer-events: none;
+      display: block;
+    }
+    .scroll-helper {
+      height: 400vh;
+      width: 100vw;
+      z-index: 0;
+    }
+    .hint {
+      position: fixed;
+      bottom: 2vh;
+      left: 0; right: 0;
+      text-align: center;
+      color: #fff;
+      font-size: 1.2em;
+      text-shadow: 0 2px 8px #0008;
+      z-index: 10;
+      pointer-events: none;
+      letter-spacing: 0.1em;
+    }
+  </style>
+</head>
+<body>
+<svg id="ocean-svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
+  <!-- 天空 -->
+  <rect id="sky" x="0" y="0" width="1000" height="1000" fill="#87ceeb" />
+  <!-- 太阳 -->
+  <circle id="sun" cx="800" cy="180" r="60" fill="#fff8b0" opacity="0.8" />
+  <!-- 云朵 -->
+  <g id="clouds">
+    <ellipse cx="200" cy="120" rx="70" ry="30" fill="#fff" opacity="0.7" />
+    <ellipse cx="260" cy="140" rx="50" ry="22" fill="#fff" opacity="0.5" />
+    <ellipse cx="700" cy="100" rx="60" ry="25" fill="#fff" opacity="0.6" />
+  </g>
+  <!-- 沙滩 -->
+  <ellipse id="beach" cx="500" cy="950" rx="600" ry="120" fill="#ffe4b5" />
+  <!-- 海面 -->
+  <g id="waves">
+    <ellipse cx="500" cy="700" rx="520" ry="80" fill="#4fc3f7" opacity="0.95" />
+    <ellipse cx="500" cy="750" rx="500" ry="60" fill="#0288d1" opacity="0.8" />
+    <ellipse cx="500" cy="800" rx="480" ry="40" fill="#01579b" opacity="0.7" />
+  </g>
+  <!-- 深海背景（初始不可见，随滚动出现） -->
+  <rect id="deepsea" x="0" y="0" width="1000" height="1000" fill="#012040" opacity="0" />
+  <!-- 鱼群 -->
+  <g id="fish-group" opacity="0">
+    <g>
+      <ellipse cx="300" cy="900" rx="18" ry="7" fill="#ffb347" />
+      <polygon points="318,900 335,895 318,910" fill="#ffb347" />
+    </g>
+    <g>
+      <ellipse cx="700" cy="950" rx="14" ry="6" fill="#b3e5fc" />
+      <polygon points="714,950 728,945 714,960" fill="#b3e5fc" />
+    </g>
+    <g>
+      <ellipse cx="600" cy="870" rx="10" ry="4" fill="#fff176" />
+      <polygon points="610,870 620,868 610,876" fill="#fff176" />
+    </g>
+  </g>
+  <!-- 水母 -->
+  <g id="jellyfish" opacity="0">
+    <ellipse cx="800" cy="850" rx="18" ry="12" fill="#e1bee7" />
+    <rect x="790" y="860" width="4" height="18" fill="#e1bee7" rx="2" />
+    <rect x="800" y="860" width="4" height="22" fill="#e1bee7" rx="2" />
+    <rect x="810" y="860" width="4" height="16" fill="#e1bee7" rx="2" />
+  </g>
+  <!-- 海底 -->
+  <ellipse id="seafloor" cx="500" cy="1050" rx="600" ry="80" fill="#3e2723" opacity="0" />
+  <!-- 海草 -->
+  <g id="seagrass" opacity="0">
+    <path d="M120,980 Q130,950 140,980 T160,980" stroke="#388e3c" stroke-width="6" fill="none" />
+    <path d="M880,980 Q890,940 900,980 T920,980" stroke="#43a047" stroke-width="5" fill="none" />
+  </g>
+</svg>
+<div class="scroll-helper"></div>
+<div class="hint">向下滚动，探索从沙滩到深海的世界</div>
+<script>
+// 滚动驱动动画
+const svg = document.getElementById('ocean-svg');
+const deepsea = document.getElementById('deepsea');
+const fishGroup = document.getElementById('fish-group');
+const jellyfish = document.getElementById('jellyfish');
+const seafloor = document.getElementById('seafloor');
+const seagrass = document.getElementById('seagrass');
+const sun = document.getElementById('sun');
+const clouds = document.getElementById('clouds');
+const waves = document.getElementById('waves');
+const beach = document.getElementById('beach');
+
+function lerp(a, b, t) { return a + (b - a) * t; }
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  const docH = document.body.scrollHeight - window.innerHeight;
+  const percent = Math.min(1, Math.max(0, scrollY / docH));
+
+  // 天空到深海背景渐变
+  deepsea.setAttribute('opacity', percent);
+
+  // 沙滩、海浪、云、太阳淡出
+  sun.setAttribute('opacity', 0.8 * (1 - percent));
+  clouds.setAttribute('opacity', 0.7 * (1 - percent));
+  waves.setAttribute('opacity', 0.95 * (1 - percent));
+  beach.setAttribute('opacity', 1 - percent);
+
+  // 鱼群、水母、海底、海草渐入
+  fishGroup.setAttribute('opacity', percent > 0.3 ? lerp(0, 1, (percent-0.3)/0.3) : 0);
+  jellyfish.setAttribute('opacity', percent > 0.5 ? lerp(0, 1, (percent-0.5)/0.3) : 0);
+  seafloor.setAttribute('opacity', percent > 0.6 ? lerp(0, 1, (percent-0.6)/0.3) : 0);
+  seagrass.setAttribute('opacity', percent > 0.7 ? lerp(0, 1, (percent-0.7)/0.2) : 0);
+
+  // 太阳下沉
+  sun.setAttribute('cy', lerp(180, 1050, percent));
+  // 云下沉并变小
+  clouds.setAttribute('transform', `translate(0,${lerp(0, 400, percent)}) scale(${lerp(1,0.7,percent)})`);
+  // 海浪下沉
+  waves.setAttribute('transform', `translate(0,${lerp(0, 300, percent)})`);
+  // 沙滩下沉
+  beach.setAttribute('cy', lerp(950, 1200, percent));
+  // 鱼群、水母、海底、海草上浮
+  fishGroup.setAttribute('transform', `translate(0,${lerp(0,-300,percent)})`);
+  jellyfish.setAttribute('transform', `translate(0,${lerp(0,-400,percent)})`);
+  seafloor.setAttribute('cy', lerp(1050, 900, percent));
+  seagrass.setAttribute('transform', `translate(0,${lerp(0,-150,percent)})`);
+});
+</script>
+</body>
+</html>

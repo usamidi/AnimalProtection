@@ -36,6 +36,29 @@
     .left {
       width: 33.33vw;
       height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .model-area {
+      flex: 1 1 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 0;
+    }
+    .model-hint {
+      flex: 0 0 auto;
+      padding: 18px 0 18px 0;
+      text-align: center;
+      color: rgba(255,255,255,0.7);
+      font-size: 1.1em;
+      letter-spacing: 0.05em;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.18);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-family: "Microsoft YaHei", Arial, sans-serif;
     }
 
     .right {
@@ -108,7 +131,13 @@
   <body>
     <div class="container">
       <div class="left">
-        <canvas id="c"></canvas>
+        <div class="model-area">
+          <canvas id="c"></canvas>
+        </div>
+        <div class="model-hint">
+          <div>鼠标滚动以缩放</div>
+          <div>鼠标拖动以改变方向</div>
+        </div>
       </div>
       <div class="right">
         <div class="right-content">
@@ -129,6 +158,8 @@
           <h2 class="section-title">为何海豚如此重要</h2>
           <p class="paragraph">海豚处于食物链的顶端，对维持海洋生态的整体平衡有重要作用。它们是海洋健康的指标，它们的状况可以直接反映海洋是否有污染物或鱼群有否减少。它们也很受游客欢迎，可以通过生态旅游帮助促进经济发展。</p>
           <p class="paragraph">通过保护海豚，我们实际上是在守护整个海洋生态 —— 这对无数野生动物以及数以亿计依赖海洋生存的人都会带来好处。</p>
+        
+
         </div>
       </div>
     </div>
@@ -136,8 +167,8 @@
 <script type="importmap">
 {
   "imports": {
-    "three": "../build/three.module.js",
-    "three/addons/": "../example/jsm/"
+    "three": "../../build/three.module.js",
+    "three/addons/": "../../example/jsm/"
   }
 }
 </script>

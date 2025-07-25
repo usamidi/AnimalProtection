@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>草原</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* 内容图片容器 */
+        .content-image {
+            position: absolute;
+            width: 500px; /* 增大图片宽度 */
+            height: auto;
+            border-radius: 15px;
+        }
+        
+        /* 文字窗口样式 */
+        .text-window {
+            position: absolute;
+            width: 500px; /* 与图片同宽 */
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #image1 {
+            top: 6%;
+            left: 70%;
+        }
+
+        #image2 {
+            top: 30%;
+            left: 70%;
+        }
+
+        #image3 {
+            top: 54%;
+            left: 70%;
+        }
+        /* 图片4和文字窗口4 - 上方对齐 */
+        #image4 {
+            top: 12%;
+            left: 50%;
+            transform: translateX(-120%); /* 向左移动图片宽度+间距 */
+        }
+        
+        #text-window4 {
+            top: 12%;
+            left: 50%;
+            width:400px;
+            transform: translateX(-20%); /* 向右移动间距 */
+        }
+        
+        /* 图片5和文字窗口5 - 下方对齐 */
+        #image5 {
+            top: 50%;
+            left: 50%;
+            transform: translateX(-120%); /* 向左移动图片宽度+间距 */
+        }
+        
+        #text-window5 {
+            top: 50%;
+            left: 50%;
+            width:400px;
+            transform: translateX(-20%); /* 向右移动间距 */
+        }
+        
+        .content-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <img src="草原.png" alt="页面背景">
+    </div>
+
+    <div class="content-image" id="image1">
+        <a href="../../animal/ovisammon.html">    
+        <img src="盘羊.png" alt="盘羊">
+        </a>
+    </div>
+    
+    <div class="content-image" id="image2">
+        <a href="../../animal/tiger.html">
+        <img src="老虎.png" alt="老虎">
+        </a>
+    </div>
+    
+    <div class="content-image" id="image3">
+        <a href="../../animal/zebra.html">
+        <img src="斑马.png" alt="斑马">
+        </a>
+    </div>
+    
+    <div class="content-image" id="image4">
+        <img src="荒漠化.png" alt="荒漠化">
+    </div>
+    
+    <div class="text-window" id="text-window4">
+        <h3>荒漠化</h3>
+        <p>草原荒漠化是指干旱、半干旱地区草原生态系统因自然因素和人为活动（如过度放牧、垦荒、水资源滥用等）导致植被退化、土壤沙化、生产力下降的过程。其表现为草场覆盖度降低、土壤流失、生物多样性锐减，最终形成类似荒漠的景观。荒漠化加剧气候干旱，威胁农牧民生计，破坏生态平衡。防治需采取退牧还草、轮牧休牧、植树固沙等措施，恢复草原生态功能。</p>
+    </div>
+    
+    <div class="content-image" id="image5">
+        <img src="过度放牧.png" alt="过度放牧">
+    </div>
+    
+    <!-- 新增文字窗口5 -->
+    <div class="text-window" id="text-window5">
+        <h3>过度放牧</h3>
+        <p>指牲畜数量超过草原承载能力，导致植被被过度啃食、土壤被践踏破坏的现象。长期过度放牧会使草场退化，优质牧草减少，毒杂草增多，土壤板结或沙化，最终引发草原荒漠化。它不仅降低草原生产力，还破坏生态平衡，加剧沙尘暴等自然灾害。合理控制载畜量、实行轮牧和休牧制度是恢复草原生态的关键措施。</p>
+    </div>
+</body>
+</html>

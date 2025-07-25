@@ -14,7 +14,7 @@ html {
   }
   
 .ocean-text {
-  font-size: 15vh;
+  font-size: 12vh;
   font-family: "Microsoft YaHei", Arial, sans-serif;
   font-weight: bold;
   background:
@@ -30,13 +30,13 @@ html {
   margin-top: 2vh; 
   margin-bottom: 0;
 }
-.forest-text {
-  font-size: 19.9vh;
-  font-family: Raleway, Arial Black, sans-serif;
+.polar-text {
+  font-size: 12vh;
+  font-family: "Microsoft YaHei", Arial, sans-serif;
   font-weight: bold;
   background:
-    linear-gradient(rgba(180,180,180,0.15), rgba(180,180,180,0.15)),
-    url("http://assets.worldwildlife.org/photos/946/images/story_full_width/forests-why-matter_63516847.jpg?1345534028") center/cover no-repeat;
+  	linear-gradient(rgba(255, 255, 255, 0.5), rgba(75, 75, 75, 0.2)),
+    url("../img/aurora.png") center/cover no-repeat;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -44,47 +44,16 @@ html {
   text-align: center;
   text-transform: uppercase;
   box-sizing: border-box;
-  text-shadow: 0 2px 6px rgba(180,180,180,0.15), 0 0 1px #fff;
-}
-.mountain-text {
-  font-size: 19.9vh;
-  font-family: Raleway, Arial Black, sans-serif;
-  font-weight: bold;
-  background:
-    linear-gradient(rgba(180,180,180,0.15), rgba(180,180,180,0.15)),
-    url("http://bestplacesonearth.net/wp-content/uploads/2014/05/Bernese-Alps-4.jpg") center/cover no-repeat;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-  text-align: center;
-  text-transform: uppercase;
-  box-sizing: border-box;
-  text-shadow: 0 2px 6px rgba(180,180,180,0.15), 0 0 1px #fff;
-}
-.desert-text {
-  font-size: 19.9vh;
-  font-family: Raleway, Arial Black, sans-serif;
-  font-weight: bold;
-  background:
-    linear-gradient(rgba(180,180,180,0.15), rgba(180,180,180,0.15)),
-    url("https://ichef.bbci.co.uk/naturelibrary/images/ic/credit/640x395/d/de/deserts_and_xeric_shrublands/deserts_and_xeric_shrublands_1.jpg") center/cover no-repeat;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-  text-align: center;
-  text-transform: uppercase;
-  box-sizing: border-box;
-  text-shadow: 0 2px 6px rgba(180,180,180,0.15), 0 0 1px #fff;
+  margin-top: 2vh; 
+  margin-bottom: 0;
 }
 .grassland-text {
-  font-size: 19.9vh;
-  font-family: Raleway, Arial Black, sans-serif;
+  font-size: 12vh;
+  font-family: "Microsoft YaHei", Arial, sans-serif;
   font-weight: bold;
   background:
-    linear-gradient(rgba(180,180,180,0.15), rgba(180,180,180,0.15)),
-    url("http://wallpapercave.com/wp/6PXvDhP.jpg") center/cover no-repeat;
+  	linear-gradient(rgba(255, 255, 255, 0.5), rgba(75, 75, 75, 0.2)),
+    url("../img/grstext.jpg") center/cover no-repeat;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -92,7 +61,8 @@ html {
   text-align: center;
   text-transform: uppercase;
   box-sizing: border-box;
-  text-shadow: 0 2px 6px rgba(180,180,180,0.15), 0 0 1px #fff;
+  margin-top: 2vh; 
+  margin-bottom: 0;
 }
 .paragraph {
   color: rgba(255, 255, 255, 0.7);

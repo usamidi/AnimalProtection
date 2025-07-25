@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Three.js - Load .GLTF</title>
+    <title>章鱼</title>
     <link rel="stylesheet" href="../css/text.css">
     <style>
     html, body {
@@ -36,6 +36,29 @@
     .left {
       width: 33.33vw;
       height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .model-area {
+      flex: 1 1 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 0;
+    }
+    .model-hint {
+      flex: 0 0 auto;
+      padding: 18px 0 18px 0;
+      text-align: center;
+      color: rgba(255,255,255,0.7);
+      font-size: 1.1em;
+      letter-spacing: 0.05em;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.18);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-family: "Microsoft YaHei", Arial, sans-serif;
     }
 
     .right {
@@ -108,27 +131,37 @@
   <body>
     <div class="container">
       <div class="left">
-        <canvas id="c"></canvas>
+        <div class="model-area">
+          <canvas id="c"></canvas>
+        </div>
+        <div class="model-hint">
+          <div>鼠标滚动以缩放</div>
+          <div>鼠标拖动以改变方向</div>
+        </div>
       </div>
       <div class="right">
         <div class="right-content">
-          <h1 class="ocean-text">海洋动物 - 鲸鱼</h1>
-          <p class="paragraph">海豚总是用它们顽皮又带点滑稽的动作让我们感到高兴，用它们友善的脸孔令我们感到温暖。它们是需要呼吸空气的温血海洋哺乳动物，也会哺育自己的子女。它们利用回声定位来“看”世界 —— 通过诠释从水中物体反射的声波，它们可以在水下导航并识别附近物体的形状、大小和位置。全球现存的海豚有40种，大部分都因为人类活动而数量正在下降，我们熟悉的中华白海豚（Sousa Chinensis）就是其中之一。</p>
-          <h2 class="section-title">中华白海豚现状</h2>
-          <img src="../img/dophin1.jpg" alt="海豚" class="illustration">
-          <p class="paragraph">栖息在包括香港在内珠江口一带的中华白海豚数量据估计仅余约<strong>2000</strong>头。过去几年，出现在香港水域的年幼海豚数量更出现令人担忧的下降。如果这种趋势持续，它们或许会面临局部灭绝的风险。</p>
-          <h2 class="section-title">海豚所面临的威胁</h2>
+          <h1 class="ocean-text">海洋动物 - 章鱼</h1>
+          <img src="../img/octopus.jpg" alt="章鱼" class="illustration">
+          <h2 class="section-title">章鱼养殖争议</h2>
+          <p class="paragraph">
+            <b>动保人士向欧盟施加压力，重燃章鱼保护倡议。</b><br>
+            <span style="color:#00bfff; font-weight:bold;">西班牙跨国海鲜公司 Nueva Pescanova</span> 因看重亚洲、地中海、美洲和墨西哥的章鱼消费市场需求，于2022年宣布将在加那利群岛的拉斯帕尔马斯港设立世界第一座工业化规模的章鱼养殖场，然而这一宣布却遭到环保组织与相关学者的强烈反对。
+          </p>
+          <h2 class="section-title">章鱼的高智商与伦理困境</h2>
+          <blockquote style="background:rgba(0,191,255,0.08); border-left:4px solid #00bfff; margin:1.5em 0; padding:1em 1.5em; color:#9da4ac; font-style:italic;">
+            章鱼是具有感官和情感认知能力的动物。动物学家认为，章鱼、墨鱼、乌贼等高智商动物的养殖几乎不可能以人道方式进行，“维持理想的生长条件”在逻辑上几乎是不可能的。
+          </blockquote>
           <ul class="ocean-list">
-            <li class="paragraph" style="font-size: 1.2em;">误捕：每年有超过30万头鲸鱼、海豚和鼠海豚因被渔网缠住而无辜丧命。</li>
-            <li class="paragraph" style="font-size: 1.2em;">船舶撞击及水下噪音：船舶撞击和噪音是导致海豚死亡和生存威胁的重要原因。</li>
-            <li class="paragraph" style="font-size: 1.2em;">栖息地被破坏：填海造地、挖泥、采砂和海岸建设等活动污染了海豚的栖息地。</li>
-            <li class="paragraph" style="font-size: 1.2em;">污染：海洋生物经常将塑料误认为食物，全球每年约有10万只海洋哺乳动物因塑料污染而死亡。</li>
+            <li><b>生理与心理压力：</b>部分专家警告，巨大的生理与心理痛苦与压力，预计让章鱼的死亡率高达 <span style="color:#ff5c5c; font-weight:bold;">20%</span>。</li>
+            <li><b>独居天性：</b>章鱼基本上是一种独居物种，没有迹象表明养殖环境可以满足章鱼的认知需求。</li>
+            <li><b>环境压力：</b>明亮拥挤的环境可能会造成它们的压力，导致相互攻击和伤害。</li>
           </ul>
-          <p class="paragraph">我们需要您的帮助以守护海豚！</p>
-          <a href="#" class="ocean-btn">立即成为海豚守护者</a>
-          <h2 class="section-title">为何海豚如此重要</h2>
-          <p class="paragraph">海豚处于食物链的顶端，对维持海洋生态的整体平衡有重要作用。它们是海洋健康的指标，它们的状况可以直接反映海洋是否有污染物或鱼群有否减少。它们也很受游客欢迎，可以通过生态旅游帮助促进经济发展。</p>
-          <p class="paragraph">通过保护海豚，我们实际上是在守护整个海洋生态 —— 这对无数野生动物以及数以亿计依赖海洋生存的人都会带来好处。</p>
+          <p class="paragraph" style="color:#8fb3d6; font-size:1.1em; font-weight:bold;">
+            —— 英国南安普顿大学讲师 Heather Browning
+          </p>
+          
+
         </div>
       </div>
     </div>
@@ -136,8 +169,8 @@
 <script type="importmap">
 {
   "imports": {
-    "three": "../../build/three.module.js",
-    "three/addons/": "../../example/jsm/"
+    "three": "../build/three.module.js",
+    "three/addons/": "../example/jsm/"
   }
 }
 </script>

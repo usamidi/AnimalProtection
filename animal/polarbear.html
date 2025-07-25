@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Three.js - Load .GLTF</title>
+    <title>北极熊</title>
     <link rel="stylesheet" href="../css/text.css">
     <style>
     html, body {
@@ -15,7 +15,7 @@
       display: flex;
       height: 100vh;
       width: 100vw;
-      background: url("../img/ocean.jpg") center/cover no-repeat;
+      background: url("../img/polar.jpg") center/cover no-repeat;
       position: relative;
     }
 
@@ -36,6 +36,29 @@
     .left {
       width: 33.33vw;
       height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .model-area {
+      flex: 1 1 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 0;
+    }
+    .model-hint {
+      flex: 0 0 auto;
+      padding: 18px 0 18px 0;
+      text-align: center;
+      color: rgba(255,255,255,0.7);
+      font-size: 1.1em;
+      letter-spacing: 0.05em;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.18);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-family: "Microsoft YaHei", Arial, sans-serif;
     }
 
     .right {
@@ -50,22 +73,6 @@
         height: 100%;
         display: block;
         background: transparent;
-    }
-    .ocean-btn {
-      display: inline-block;
-      background: linear-gradient(90deg, #00bfff 0%, #0077be 100%);
-      color: #fff;
-      font-size: 1.2em;
-      font-weight: bold;
-      padding: 0.7em 2em;
-      border-radius: 30px;
-      margin: 2em 0;
-      text-decoration: none;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
-      transition: background 0.2s;
-    }
-    .ocean-btn:hover {
-      background: linear-gradient(90deg, #0077be 0%, #00bfff 100%);
     }
     .right-content {
       background: rgba(0,0,0,0.35); /* 或 rgba(255,255,255,0.12) */
@@ -108,27 +115,52 @@
   <body>
     <div class="container">
       <div class="left">
-        <canvas id="c"></canvas>
+        <div class="model-area">
+          <canvas id="c"></canvas>
+        </div>
+        <div class="model-hint">
+          <div>鼠标滚动以缩放</div>
+          <div>鼠标拖动以改变方向</div>
+        </div>
       </div>
       <div class="right">
         <div class="right-content">
-          <h1 class="ocean-text">海洋动物 - 海豚</h1>
-          <p class="paragraph">海豚总是用它们顽皮又带点滑稽的动作让我们感到高兴，用它们友善的脸孔令我们感到温暖。它们是需要呼吸空气的温血海洋哺乳动物，也会哺育自己的子女。它们利用回声定位来“看”世界 —— 通过诠释从水中物体反射的声波，它们可以在水下导航并识别附近物体的形状、大小和位置。全球现存的海豚有40种，大部分都因为人类活动而数量正在下降，我们熟悉的中华白海豚（Sousa Chinensis）就是其中之一。</p>
-          <h2 class="section-title">中华白海豚现状</h2>
-          <img src="../img/dophin1.jpg" alt="海豚" class="illustration">
-          <p class="paragraph">栖息在包括香港在内珠江口一带的中华白海豚数量据估计仅余约<strong>2000</strong>头。过去几年，出现在香港水域的年幼海豚数量更出现令人担忧的下降。如果这种趋势持续，它们或许会面临局部灭绝的风险。</p>
-          <h2 class="section-title">海豚所面临的威胁</h2>
-          <ul class="ocean-list">
-            <li class="paragraph" style="font-size: 1.2em;">误捕：每年有超过30万头鲸鱼、海豚和鼠海豚因被渔网缠住而无辜丧命。</li>
-            <li class="paragraph" style="font-size: 1.2em;">船舶撞击及水下噪音：船舶撞击和噪音是导致海豚死亡和生存威胁的重要原因。</li>
-            <li class="paragraph" style="font-size: 1.2em;">栖息地被破坏：填海造地、挖泥、采砂和海岸建设等活动污染了海豚的栖息地。</li>
-            <li class="paragraph" style="font-size: 1.2em;">污染：海洋生物经常将塑料误认为食物，全球每年约有10万只海洋哺乳动物因塑料污染而死亡。</li>
-          </ul>
-          <p class="paragraph">我们需要您的帮助以守护海豚！</p>
-          <a href="#" class="ocean-btn">立即成为海豚守护者</a>
-          <h2 class="section-title">为何海豚如此重要</h2>
-          <p class="paragraph">海豚处于食物链的顶端，对维持海洋生态的整体平衡有重要作用。它们是海洋健康的指标，它们的状况可以直接反映海洋是否有污染物或鱼群有否减少。它们也很受游客欢迎，可以通过生态旅游帮助促进经济发展。</p>
-          <p class="paragraph">通过保护海豚，我们实际上是在守护整个海洋生态 —— 这对无数野生动物以及数以亿计依赖海洋生存的人都会带来好处。</p>
+          <h1 class="polar-text">极地动物 - 北极熊</h1>
+          <video controls width="400" style="display:block; margin: 2em auto; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.18); background: #000;">
+            <source src="../video/polarbear.mp4" type="video/mp4">
+            您的浏览器不支持视频播放。
+          </video>
+          <h2 class="section-title">北极熊妈妈与小熊的旅程</h2>
+          <p class="paragraph">
+            小时候，如果路途遥远，妈妈怕你受累，会把你背上。
+          </p>
+          <p class="paragraph">
+            北极熊也是一样。熊妈妈在生下小熊（通常是一胎两只）六个月后，便会带着全家踏上长达两年的旅程。妈妈一边行走，一边教导小熊求生技能；在迁徙的过程中，妈妈有时也会背上小熊。
+          </p>
+
+          <h2 class="section-title">冰川消融下的生存挑战</h2>
+          <p class="paragraph">
+            北极熊虽然四海为家，但它们并不能无止境地在海里游泳。它们的生存和捕猎，完全依赖冰川及海上的浮冰才能“站得住脚”。然而，北极冰层覆盖的区域正以前所未有的速度融化，因此不时有报道指有瘦骨嶙峋的北极熊妈妈，背着小熊在茫茫冰海中无止境地游……
+          </p>
+          <p class="paragraph">
+            全球首个关于气候变化引起海冰融化对北极熊影响的研究最近发布报告指出，由于冰川和浮冰越来越少，北极熊被迫转型为“长途泳手”。2004至2009年间，研究人员用卫星追踪了68头北极熊，发现它们最长的游泳距离为6,855米，差不多等于在标准游泳池来回69次；而在水中的最长时间则长达12.7天！
+          </p>
+          <p class="paragraph">
+            不幸的是，监测数据显示，长途游泳时，熊妈妈有一半的机会失去小熊；如果它们不需要游这么远，小熊的死亡率只有18%。
+          </p>
+
+          <h2 class="section-title">气候变化与我们的责任</h2>
+          <p class="paragraph">
+            气候变化带来的影响无远弗届，谁也不能独善其身。二氧化碳是导致气候变化的主要温室气体，远在香港的我们也是元凶之一。身处发达社会，什么都来得太容易，让很多人没有好好反省资源的使用方式，以及我们的行为会如何影响整个地球。
+          </p>
+          <p class="paragraph">
+            机场管理局正建议兴建第三条跑道，新跑道势必大幅增加香港的二氧化碳排放量，恶化气候变化情况，但机场管理局从未交代这方面的数据，却要市民在不了解情况的前提下表态是否赞成兴建第三条跑道。
+          </p>
+          <p class="paragraph" style="color:#ff9393; font-weight:bold;">
+            如果不想被机场管理局陷于不义，间接成为“北极熊杀手”，请立即关注并行动起来！
+          </p>
+          
+
         </div>
       </div>
     </div>
@@ -136,8 +168,8 @@
 <script type="importmap">
 {
   "imports": {
-    "three": "../../build/three.module.js",
-    "three/addons/": "../../example/jsm/"
+    "three": "../build/three.module.js",
+    "three/addons/": "../example/jsm/"
   }
 }
 </script>

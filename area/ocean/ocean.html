@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>海洋海豚动画</title>
+    <link rel="stylesheet" href="style2.css" />
+</head>
+<body>
+    <h1>海洋世界</h1>
+    <a href="test.html">
+    <svg t="1753453494711" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7000" width="200" height="200"><path d="M512 576.00000001l0-128.00000002L53.31200001 448A53.312 53.312 0 0 0 0 501.312l0 21.376A53.312 53.312 0 0 0 53.31200001 576L512 576.00000001z" fill="#4CB6E4" p-id="7001"></path><path d="M593.28 781.824l358.08-220.8a53.312 53.312 0 0 0 0.576-90.432l-358.08-226.752A53.312 53.312 0 0 0 512 288.896L512 736.44799999a53.312 53.312 0 0 0 81.28 45.44000002z" fill="#4CB6E4" p-id="7002"></path></svg>
+    </a>
+    <!-- 新增的内容容器 -->
+    <div class="content-container">
+    <!-- 第一组图片文字 -->
+    <div class="image-text-pair">
+        <div class="image-box">
+            <img src="p1.png" alt="海洋生物1" class="aspect-ratio-16-9">
+        </div>
+        <div class="text-box">
+            <p>乱扔垃圾严重污染海洋，每年数百万吨塑料等废弃物进入海洋，威胁海洋生物生存。垃圾缠绕或误食导致大量动物死亡，微塑料通过食物链危害人类健康。污染破坏生态系统，影响渔业和旅游业。减少垃圾排放、加强回收是保护海洋的关键。</p>
+        </div>
+    </div>
+    
+    <!-- 第二组图片文字 -->
+    <div class="image-text-pair">
+        <div class="image-box">
+            <img src="p2.png" alt="海洋生物2" class="aspect-ratio-16-9">
+        </div>
+        <div class="text-box">
+            <p>过度捕捞导致海洋鱼类资源锐减，破坏生态平衡，许多物种濒临灭绝。渔业枯竭影响全球粮食安全，威胁沿海居民生计。同时，破坏珊瑚礁等海洋栖息地，削弱海洋生态系统的恢复能力。需推行可持续捕捞，设立海洋保护区，以维护海洋生物多样性。</p>
+        </div>
+    </div>
+</div>
+    <!-- 原有的波浪SVG -->
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+            <path id="gentle-wave"
+                d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(76, 170, 228,0.7)" />
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(76, 170, 228,0.5)" />
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(76, 170, 228,0.3)" />
+            <use xlink:href="#gentle-wave" x="48" y="7" fill="#4CB6E4" />
+        </g>
+    </svg>
+</body>
+</html>

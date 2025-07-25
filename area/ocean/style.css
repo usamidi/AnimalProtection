@@ -1,0 +1,338 @@
+body {
+    margin: 0;
+}
+ 
+h1 {
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 2px;
+    font-size: 48px;    
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: 48px;
+    color: white;
+    z-index: 5;
+}
+p {
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 1px;
+    font-size: 14px;
+    color: #333333;
+}
+ 
+.header {
+    position: relative;
+    text-align: center;
+    background: linear-gradient(60deg, rgba(84, 58, 183, 1) 0%, rgba(0, 172, 193, 1) 100%);
+/* 	background: #FFAFBD;  
+	background: -webkit-linear-gradient(to right, #ffc3a0, #FFAFBD);  
+	background: linear-gradient(to right, #ffc3a0, #FFAFBD); 
+ */
+    color: white;
+}
+.logo {
+    width: 50px;
+    fill: white;
+    padding-right: 15px;
+    display: inline-block;
+    vertical-align: middle;
+}
+ 
+.inner-header {
+    height: 85vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+ 
+.flex {
+    /*Flexbox for containers*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+ 
+.waves {
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    margin-bottom: -7px; /*Fix for safari gap*/
+    min-height: 100px;
+    max-height: 150px;
+}
+ 
+.content {
+    position: relative;
+    height: 20vh;
+    text-align: center;
+    background-color: white;
+}
+ 
+.content a {
+    margin: 0 5px;
+    font-size: 12px;
+    color: #333;
+}
+ 
+.content a:hover {
+    color: #000;
+}
+ 
+/* Animation */
+ 
+.parallax > use {
+    animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+.parallax > use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+}
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+    .waves {
+        height: 40px;
+        min-height: 40px;
+    }
+    .content {
+        height: 30vh;
+    }
+    h1 {
+        font-size: 24px;
+    }
+}
+body {
+            margin: 0;
+            overflow-x: hidden;
+            height: 100vh;
+            background: linear-gradient(60deg, rgba(84, 58, 183, 1) 0%, rgba(0, 172, 193, 1) 100%);
+        }
+
+        /* 波浪样式 */
+        .waves {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 15vh;
+            min-height: 100px;
+            max-height: 150px;
+        }
+
+        /* 海豚容器 */
+        .dolphin1 {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            top: 20%;
+            cursor: pointer;
+            z-index: 10;
+            animation: swim-right 12s linear infinite;
+        }
+        .dolphin1:hover {
+            animation-play-state: paused;
+        }
+
+
+        .dolphin2 {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            top: 50%;
+            cursor: pointer;
+            z-index: 10;
+            animation: swim-left 15s linear infinite;
+        }
+        .dolphin2:hover {
+            animation-play-state: paused;
+        }
+
+        .dolphin3 {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            top: 60%;
+            cursor: pointer;
+            z-index: 10;
+            animation: swim-left 30s linear infinite;
+        }
+        .dolphin3:hover {
+            animation-play-state: paused;
+        }
+
+        .dolphin4 {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            top: 45%;
+            cursor: pointer;
+            z-index: 10;
+            animation: swim-left 40s linear infinite;
+        }
+        .dolphin4:hover {
+            animation-play-state: paused;
+        }
+
+        .dolphin5 {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 55%;
+            cursor: pointer;
+            z-index: 10;
+            animation: swim-left 19s linear infinite;
+        }
+        .dolphin5:hover {
+            animation-play-state: paused;
+        }
+
+        .dolphin6 {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 25%;
+            cursor: pointer;
+            z-index: 10;
+            animation: swim-right 8s linear infinite;
+        }
+        .dolphin6:hover {
+            animation-play-state: paused;
+        }
+
+        .dolphin7 {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 45%;
+            cursor: pointer;
+            z-index: 10;
+            animation: swim-right 12s linear infinite;
+        }
+        .dolphin7:hover {
+            animation-play-state: paused;
+        }
+
+        .dolphin8 {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 22%;
+            cursor: pointer;
+            z-index: 10;
+            animation: swim-right 24s linear infinite;
+        }
+        .dolphin8:hover {
+            animation-play-state: paused;
+        }
+
+        .dolphin9 {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 12%;
+            cursor: pointer;
+            z-index: 10;
+            animation: swim-left 14s linear infinite;
+        }
+        .dolphin9:hover {
+            animation-play-state: paused;
+        }
+
+        /* 游动动画 */
+        @keyframes swim-right {
+            0% { transform: translateX(calc(100vw + 100px)); } /* 起始位置：屏幕右侧外 */
+            100% { transform: translateX(-100px); }           /* 结束位置：屏幕左侧外 */
+        }
+
+        @keyframes swim-left {
+            0% { transform: translateX(-100px); }
+            100% { transform: translateX(calc(100vw + 100px)); }
+        }
+
+
+/* 新增的内容容器样式 */
+.content-container {
+    position: relative;
+    width: 80%;
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 20px;
+    z-index: 5;
+}
+
+/* 图片文字对样式 */
+.image-text-pair {
+    display: flex;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+/* 圆角框通用样式 */
+.rounded-box {
+    border-radius: 15px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 图片框样式 */
+.image-box {
+    flex: 1;
+    min-width: 300px;
+}
+
+.image-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+}
+
+/* 文本框样式 */
+.text-box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .content-container {
+        width: 90%;
+        margin: 50px auto;
+    }
+    
+    .image-text-pair {
+        flex-direction: column;
+    }
+    
+    .image-box, .text-box {
+        min-width: 100%;
+    }
+}
